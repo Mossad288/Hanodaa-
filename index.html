@@ -8,8 +8,7 @@
     :root {
       --primary-color: #ff2e63;
       --secondary-color: #ff85a1;
-      --dark-bg: #100007;
-      --gold-glow: #ffe600;
+      --dark-bg: #050002;
     }
 
     * {
@@ -26,7 +25,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow-x: hidden;
+      overflow: hidden;
       position: relative;
     }
 
@@ -34,35 +33,34 @@
     .floating-heart {
       position: absolute;
       color: var(--primary-color);
-      font-size: 20px;
+      font-size: 14px;
       animation: float 6s infinite linear;
-      opacity: 0.6;
+      opacity: 0.4;
       pointer-events: none;
       z-index: 1;
     }
 
     @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
       50% { opacity: 0.8; }
-      100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
 
-    /* Page Container System */
     .page {
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      width: 90%;
-      max-width: 800px;
-      min-height: 85vh;
-      text-align: center;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      border-radius: 25px;
-      border: 1px solid rgba(255, 46, 99, 0.3);
-      box-shadow: 0 0 30px rgba(255, 46, 99, 0.2);
+      justify-content: space-between;
+      width: 92%;
+      max-width: 420px;
+      height: 88vh;
+      max-height: 720px;
+      padding: 20px 10px;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(15px);
+      border-radius: 30px;
+      border: 1px solid rgba(255, 46, 99, 0.25);
+      box-shadow: 0 0 35px rgba(255, 46, 99, 0.2);
       position: relative;
       z-index: 10;
       animation: fadeIn 0.8s ease-in-out forwards;
@@ -77,94 +75,70 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* Page 1: Heart Shape Text */
-    .heart-wrapper {
+    /* Full Heart Made Of Words */
+    .heart-presentation-container {
       position: relative;
-      width: 320px;
-      height: 320px;
-      margin: 20px auto;
+      width: 340px;
+      height: 340px;
+      margin: auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .heart-text-container {
+    .animated-word {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .love-word {
-      position: absolute;
-      font-size: 13px;
-      font-weight: bold;
-      color: #ff4d6d;
-      text-shadow: 0 0 8px #ff2e63, 0 0 15px #ff85a1;
+      font-weight: 700;
+      color: #fff;
       white-space: nowrap;
-      transform: translate(-50%, -50%);
-      animation: pulseGlow 2s infinite alternate;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      animation: popInWord 0.4s ease-out forwards, glowPulse 2s infinite alternate;
+      text-shadow: 0 0 8px var(--primary-color), 0 0 15px var(--secondary-color);
     }
 
-    .heart-center-glow {
-      font-size: 45px;
-      color: var(--primary-color);
-      text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color);
-      animation: heartBeat 1.2s infinite ease-in-out;
+    @keyframes popInWord {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+      70% { transform: translate(-50%, -50%) scale(1.2); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
 
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
+    @keyframes glowPulse {
+      from { filter: drop-shadow(0 0 2px #ff2e63); }
+      to { filter: drop-shadow(0 0 8px #ff85a1); color: #ffe6ee; }
     }
 
-    @keyframes pulseGlow {
-      from { filter: brightness(1); }
-      to { filter: brightness(1.6); }
-    }
-
-    /* Page 2: Name & Message */
+    /* Page 2 Styling */
     .title-name {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: var(--primary-color);
       text-shadow: 0 0 20px var(--primary-color), 0 0 35px var(--secondary-color);
-      margin-bottom: 25px;
-      letter-spacing: 2px;
+      margin-bottom: 15px;
     }
 
     .love-message {
-      font-size: 1.4rem;
-      line-height: 2;
+      font-size: 1.25rem;
+      line-height: 1.9;
       color: #f1f1f1;
       background: rgba(0, 0, 0, 0.4);
-      padding: 25px;
-      border-radius: 18px;
+      padding: 20px;
+      border-radius: 20px;
       border-right: 4px solid var(--primary-color);
-      box-shadow: inset 0 0 15px rgba(255, 46, 99, 0.1);
     }
 
-    /* Page 3: Photo Gallery & Music */
+    /* Page 3 Gallery Styling */
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 12px;
       width: 100%;
-      margin-top: 15px;
     }
 
     .photo-card {
-      position: relative;
+      height: 140px;
       border-radius: 15px;
       overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      height: 180px;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: var(--primary-color);
+      border: 2px solid rgba(255, 46, 99, 0.4);
     }
 
     .photo-card img {
@@ -174,24 +148,18 @@
     }
 
     .audio-player {
-      margin-top: 25px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 12px;
-      border-radius: 50px;
-      border: 1px solid var(--primary-color);
+      margin-top: 10px;
     }
 
     audio {
       width: 100%;
-      height: 35px;
-      outline: none;
+      height: 40px;
     }
 
     /* Buttons */
     .next-btn {
-      margin-top: 30px;
-      padding: 12px 40px;
+      padding: 12px 45px;
       font-size: 1.1rem;
       font-weight: bold;
       color: #fff;
@@ -199,52 +167,43 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(255, 46, 99, 0.5);
-      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 46, 99, 0.6);
+      transition: transform 0.2s ease;
     }
 
-    .next-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(255, 46, 99, 0.8);
-    }
-
-    @media (max-width: 600px) {
-      .gallery { grid-template-columns: 1fr; }
-      .photo-card { height: 200px; }
-      .title-name { font-size: 2.8rem; }
-      .love-message { font-size: 1.1rem; }
+    .next-btn:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts Background -->
   <div id="hearts-bg"></div>
 
-  <!-- Page 1: Heart Presentation -->
+  <!-- PAGE 1 -->
   <div class="page active" id="page1">
-    <h2 style="margin-bottom: 10px; color: #ff85a1;">علشانك أنتِ بس ❤️</h2>
-    <div class="heart-wrapper">
-      <div class="heart-center-glow">❤️</div>
-      <div class="heart-text-container" id="heartContainer"></div>
-    </div>
+    <h3 style="color: var(--secondary-color); letter-spacing: 1px; margin-top: 5px;">علشانك أنتِ بس ❤️</h3>
+    
+    <div class="heart-presentation-container" id="heartWordsContainer"></div>
+
     <button class="next-btn" onclick="nextPage(2)">Next ➡️</button>
   </div>
 
-  <!-- Page 2: Name & Special Message -->
-  <div class="page" id="page2">
+  <!-- PAGE 2 -->
+  <div class="page" id="page2" style="justify-content: center; gap: 20px;">
     <h1 class="title-name">Hend ❤️</h1>
     <div class="love-message">
-      لـ بنتي ونور عيني وأغلى حاجة في حياتي.. <br>
-      ودي حاجة مني ليكي بمناسبة إني بحبك وبموت فيكي ومش بحب قدك يعني.. <br>
+      لـ بنتي ونور عيني وأغلى حاجة في حياتي.. <br><br>
+      ودي حاجة مني ليكي بمناسبة إني بحبك وبموت فيكي ومش بحب قدك يعني.. <br><br>
       <span style="color: var(--secondary-color); font-weight: bold;">وخفي نكد عليا شويه 😂😂❤️</span>
     </div>
     <button class="next-btn" onclick="nextPage(3)">Next ➡️</button>
   </div>
 
-  <!-- Page 3: Photos & Song -->
+  <!-- PAGE 3 -->
   <div class="page" id="page3">
-    <h2 style="color: var(--secondary-color); margin-bottom: 15px;">ذكرياتنا الجميلة 📸❤️</h2>
+    <h3 style="color: var(--secondary-color);">ذكرياتنا الجميلة 📸❤️</h3>
+    
     <div class="gallery">
       <div class="photo-card"><img src="photo1.jpg" alt="Photo 1"></div>
       <div class="photo-card"><img src="photo2.jpg" alt="Photo 2"></div>
@@ -255,64 +214,73 @@
     <div class="audio-player">
       <audio id="bgSong" controls loop>
         <source src="song.mp3" type="audio/mpeg">
-        متصفحك لا يدعم مشغل الصوت.
       </audio>
     </div>
   </div>
 
   <script>
-    // Words for "I Love You" in various languages
+    // List of "I love you" in many languages to fill the whole heart shape
     const loveWords = [
       "بحبك", "I Love You", "Je t'aime", "Te amo", "Ich liebe dich", 
       "Ti amo", "أحبك", "Saranghae", "Aishiteru", "Я тебя люблю", 
-      "S'agapo", "Mahal kita", "بحبك", "Te iubesc", "اموت فيك"
+      "S'agapo", "Mahal kita", "Te iubesc", "أموت فيك", "روحي", 
+      "حياتي", "عشقي", "بحبك", "I Love You", "Je t'aime", "Te amo", 
+      "Ich liebe dich", "Ti amo", "أحبك", "Saranghae", "Aishiteru", 
+      "Я тебя люблю", "S'agapo", "Mahal kita", "Te iubesc", "أموت فيك", 
+      "بحبك", "I Love You", "Je t'aime", "Te amo", "Ich liebe dich",
+      "Ti amo", "أحبك", "Saranghae", "Aishiteru", "بحبك", "عشقي"
     ];
 
-    // Generate Heart Shape using Mathematical Parametric Equations
-    const container = document.getElementById('heartContainer');
-    const totalPoints = 32;
+    const container = document.getElementById('heartWordsContainer');
+    const totalWords = loveWords.length;
 
-    for (let i = 0; i < totalPoints; i++) {
-      const t = (i / totalPoints) * (2 * Math.PI);
+    // Mathematical formula for generating coordinates of a heart shape filled with text
+    loveWords.forEach((word, index) => {
+      const t = (index / totalWords) * (2 * Math.PI);
       
-      // Heart Equation
+      // Heart parametric equation
       const x = 16 * Math.pow(Math.sin(t), 3);
       const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
 
-      // Scale and Center Offset
-      const posX = 160 + x * 8.5;
-      const posY = 150 + y * 8.5;
+      // Scaling for mobile display
+      const posX = 170 + x * 9.5;
+      const posY = 150 + y * 9.5;
 
       const span = document.createElement('span');
-      span.className = 'love-word';
-      span.innerText = loveWords[i % loveWords.length];
+      span.className = 'animated-word';
+      span.innerText = word;
       span.style.left = `${posX}px`;
       span.style.top = `${posY}px`;
       
-      container.appendChild(span);
-    }
+      // Dynamic font sizing for inner vs outer placement
+      span.style.fontSize = (index % 3 === 0) ? '12px' : '10px';
+      
+      // Sequential animation delay to draw the heart live
+      span.style.animationDelay = `${index * 0.08}s, ${index * 0.08 + 0.4}s`;
 
-    // Floating background hearts generator
+      container.appendChild(span);
+    });
+
+    // Background floating hearts
     const heartsBg = document.getElementById('hearts-bg');
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 20; i++) {
       const heart = document.createElement('div');
       heart.className = 'floating-heart';
       heart.innerHTML = '❤️';
       heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.animationDuration = `${4 + Math.random() * 5}s`;
+      heart.style.animationDuration = `${4 + Math.random() * 4}s`;
       heart.style.animationDelay = `${Math.random() * 3}s`;
       heartsBg.appendChild(heart);
     }
 
-    // Page Navigation
+    // Page navigation logic
     function nextPage(pageNumber) {
       document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
       document.getElementById(`page${pageNumber}`).classList.add('active');
 
-      // Play audio automatically when reaching Page 3
       if (pageNumber === 3) {
         const audio = document.getElementById('bgSong');
-        audio.play().catch(err => console.log("Auto-play blocked by browser. Click play manually."));
+        audio.play().catch(err => console.log("Audio autoplay blocked"));
       }
     }
   </script>
