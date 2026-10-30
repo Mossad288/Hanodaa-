@@ -1,282 +1,1033 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl" class="notranslate" translate="no">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <meta name="google" content="notranslate">
+
   <title>For My Love - Hend ❤️</title>
+
   <style>
-    html, body {
-      background-color: #000000 !important;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    * {
+
+      box-sizing: border-box;
+
     }
 
-    /* Twinkling Background Stars */
+    html, body {
+
+      background: #000 !important;
+
+      color: #fff;
+
+      margin: 0;
+
+      padding: 0;
+
+      width: 100%;
+
+      min-height: 100%;
+
+      overflow: hidden;
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    }
+
     .star {
-      position: absolute;
-      background: #ffffff;
+
+      position: fixed;
+
+      background: #fff;
+
       border-radius: 50%;
+
       animation: twinkle 3s infinite ease-in-out;
+
       z-index: 1;
+
+      pointer-events: none;
+
     }
 
     @keyframes twinkle {
-      0%, 100% { opacity: 0.1; transform: scale(0.8); }
-      50% { opacity: 0.8; transform: scale(1.2); }
+
+      0%, 100% { opacity: .15; transform: scale(.8); }
+
+      50% { opacity: .9; transform: scale(1.2); }
+
     }
 
-    /* Page Container */
     .page {
+
       display: none;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: space-between;
-      width: 92%;
-      max-width: 400px;
-      height: 88vh;
-      margin: 6vh auto;
-      padding: 20px 10px;
-      background: rgba(10, 5, 8, 0.9);
+
+      width: min(95%, 420px);
+
+      height: 92dvh;
+
+      min-height: 540px;
+
+      margin: 4dvh auto;
+
+      padding: 15px 10px;
+
+      background: rgba(10, 5, 8, .9);
+
       backdrop-filter: blur(12px);
+
       border-radius: 30px;
-      border: 1px solid rgba(255, 46, 99, 0.35);
-      box-shadow: 0 0 35px rgba(255, 46, 99, 0.25);
+
+      border: 1px solid rgba(255, 46, 99, .35);
+
+      box-shadow: 0 0 35px rgba(255, 46, 99, .25);
+
       position: relative;
+
       z-index: 10;
-      animation: fadeIn 0.6s ease forwards;
+
+      animation: fadeIn .6s ease forwards;
+
     }
 
     .page.active {
+
       display: flex;
+
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.96); }
+
+      from { opacity: 0; transform: scale(.96); }
+
       to { opacity: 1; transform: scale(1); }
+
     }
 
-    /* Exact Filled Heart Block Matching Reference Image */
-    .heart-container {
+    /* القلب المكوّن من الكلمات */
+
+    .heart-card {
+
       position: relative;
-      width: 320px;
-      height: 310px;
+
+      width: min(370px, 96vw);
+
+      height: min(410px, 57vh);
+
+      min-height: 340px;
+
       margin: auto;
-      background: radial-gradient(circle, rgba(185, 15, 55, 0.85) 0%, rgba(100, 8, 30, 0.95) 70%, rgba(40, 0, 10, 1) 100%);
-      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>");
-      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>");
-      -webkit-mask-size: 96% 96%;
-      mask-size: 96% 96%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
+
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
-      padding: 30px 15px;
-      box-shadow: 0 0 35px rgba(255, 46, 99, 0.6);
+
+      text-align: center;
+
+      padding: 18px 4px;
+
     }
 
     .heart-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #ffccd5;
-      margin-bottom: 12px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      letter-spacing: .4px;
+
+      color: #ffe0e7;
+
+      margin: 0 0 17px;
+
+      text-shadow: 0 0 9px #ff2e63, 0 2px 5px #000;
+
+      direction: ltr;
+
     }
 
-    .words-matrix {
+    .heart-lines-wrapper {
+
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+
+      flex-direction: column;
+
       align-items: center;
-      gap: 5px 8px;
+
+      justify-content: center;
+
+      gap: 3px;
+
       width: 100%;
-      max-width: 260px;
-      text-align: center;
+
+      direction: ltr;
+
     }
 
-    .matrix-word {
-      font-size: 11px;
-      font-weight: 600;
-      color: #ffe6ee;
+    .line {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      white-space: nowrap;
+
+      min-height: 13px;
+
+      max-width: 100%;
+
+      animation: lineGlow 3s ease-in-out infinite alternate;
+
+    }
+
+    .line.top-heart {
+
+      justify-content: space-between;
+
+    }
+
+    .word {
+
+      display: inline-block;
+
+      font-size: clamp(5px, 1.35vw, 7px);
+
+      font-weight: 800;
+
+      color: #ffd4de;
+
       opacity: 0;
-      transform: scale(0.5);
-      animation: wordPop 0.4s ease forwards;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+
+      transform: translateY(-8px) scale(.8);
+
+      animation: wordPop .55s cubic-bezier(.2,.8,.2,1) forwards;
+
+      text-shadow: 0 0 5px rgba(255,23,68,.95), 0 1px 3px #000;
+
+      line-height: 1.3;
+
+    }
+
+    .word:nth-child(2n) {
+
+      color: #ff91ad;
+
     }
 
     @keyframes wordPop {
-      to { opacity: 1; transform: scale(1); }
+
+      to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+      }
+
     }
 
-    /* Page 2 Styling */
+    @keyframes lineGlow {
+
+      from { filter: brightness(.9); }
+
+      to { filter: brightness(1.2); }
+
+    }
+
     .title-name {
+
       font-size: 3rem;
+
       color: #ff2e63;
+
       text-shadow: 0 0 20px #ff2e63, 0 0 40px #ff85a1;
+
       margin-bottom: 10px;
+
       text-align: center;
+
     }
 
     .love-message {
+
       font-size: 1.15rem;
+
       line-height: 1.8;
+
       color: #f1f1f1;
-      background: rgba(255, 255, 255, 0.04);
+
+      background: rgba(255, 255, 255, .04);
+
       padding: 20px;
+
       border-radius: 18px;
+
       border-right: 4px solid #ff2e63;
+
       text-align: center;
+
     }
 
-    /* Page 3 Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+    /* معرض الصور */
+
+    .gallery-shell {
+
       width: 100%;
+
+      flex: 1;
+
+      min-height: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      overflow: hidden;
+
+    }
+
+    .gallery {
+
+      width: 100%;
+
+      height: 100%;
+
+      min-height: 0;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      touch-action: pan-y;
+
+      cursor: grab;
+
+      user-select: none;
+
+      -webkit-user-select: none;
+
+    }
+
+    .gallery:active {
+
+      cursor: grabbing;
+
+    }
+
+    .gallery-track {
+
+      display: flex;
+
+      direction: ltr;
+
+      width: 100%;
+
+      height: 100%;
+
+      transition: transform .65s cubic-bezier(.22,.75,.2,1);
+
+      will-change: transform;
+
     }
 
     .photo-card {
-      height: 135px;
-      border-radius: 12px;
+
+      position: relative;
+
+      flex: 0 0 100%;
+
+      width: 100%;
+
+      height: 100%;
+
+      min-width: 100%;
+
       overflow: hidden;
-      border: 1px solid #ff2e63;
-      box-shadow: 0 0 10px rgba(255, 46, 99, 0.3);
+
+      border-radius: 22px;
+
+      border: 1px solid rgba(255, 133, 161, .8);
+
+      background: #160910;
+
+      box-shadow: 0 12px 35px rgba(255, 46, 99, .22);
+
+    }
+
+    .photo-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 45% 0 0;
+
+      background: linear-gradient(transparent, rgba(0,0,0,.58));
+
+      pointer-events: none;
+
     }
 
     .photo-card img {
+
+      display: block;
+
       width: 100%;
+
       height: 100%;
-      object-fit: cover;
+
+      object-fit: contain;
+
+      background: #090509;
+
+      pointer-events: none;
+
+    }
+
+    .photo-caption {
+
+      position: absolute;
+
+      z-index: 2;
+
+      bottom: 17px;
+
+      left: 12px;
+
+      right: 12px;
+
+      text-align: center;
+
+      color: #fff;
+
+      font-size: 1rem;
+
+      font-weight: 800;
+
+      text-shadow: 0 2px 10px #000;
+
+    }
+
+    .gallery-controls {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+      direction: ltr;
+
+    }
+
+    .gallery-arrow {
+
+      width: 42px;
+
+      height: 42px;
+
+      flex: 0 0 42px;
+
+      border: 1px solid rgba(255,133,161,.6);
+
+      border-radius: 50%;
+
+      background: rgba(255,46,99,.18);
+
+      color: white;
+
+      font-size: 22px;
+
+      box-shadow: 0 0 14px rgba(255,46,99,.2);
+
+      cursor: pointer;
+
+    }
+
+    .gallery-dots {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      flex: 1;
+
+    }
+
+    .gallery-dot {
+
+      width: 8px;
+
+      height: 8px;
+
+      padding: 0;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.35);
+
+      transition: .25s;
+
+      cursor: pointer;
+
+    }
+
+    .gallery-dot.active {
+
+      width: 24px;
+
+      border-radius: 8px;
+
+      background: #ff6f91;
+
+      box-shadow: 0 0 10px #ff2e63;
+
+    }
+
+    .swipe-hint {
+
+      color: rgba(255,220,230,.72);
+
+      font-size: .78rem;
+
+      margin: 0;
+
+      text-align: center;
+
     }
 
     .audio-player {
+
       width: 100%;
+
       margin-top: 10px;
+
     }
 
     audio {
+
       width: 100%;
+
       height: 38px;
+
     }
 
-    /* Button */
-    .next-btn {
-      padding: 12px 50px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #ffffff;
-      background: linear-gradient(45deg, #ff2e63, #ff85a1);
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(255, 46, 99, 0.7);
+    /* أزرار التنقل بين الصفحات */
+
+    .page-navigation {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      direction: rtl;
+
     }
+
+    .page-navigation .next-btn {
+
+      padding: 11px 24px;
+
+      font-size: 1rem;
+
+    }
+
+    .secondary-btn {
+
+      background: linear-gradient(45deg, #6b2940, #a94c69);
+
+      box-shadow: 0 0 12px rgba(255, 46, 99, .35);
+
+    }
+
+    .next-btn {
+
+      padding: 12px 50px;
+
+      font-size: 1.1rem;
+
+      font-weight: bold;
+
+      color: #fff;
+
+      background: linear-gradient(45deg, #ff2e63, #ff85a1);
+
+      border: none;
+
+      border-radius: 25px;
+
+      cursor: pointer;
+
+      box-shadow: 0 0 15px rgba(255, 46, 99, .7);
+
+    }
+
+    @media (max-height: 700px) {
+
+      .page {
+
+        height: 94dvh;
+
+        min-height: 0;
+
+        margin: 3dvh auto;
+
+        padding-top: 10px;
+
+        padding-bottom: 10px;
+
+      }
+
+      .heart-card {
+
+        height: min(360px, 51vh);
+
+        min-height: 300px;
+
+      }
+
+      .heart-lines-wrapper {
+
+        gap: 3px;
+
+      }
+
+      .word {
+
+        font-size: clamp(6.5px, 2.05vw, 8px);
+
+      }
+
+      .page-navigation .next-btn {
+
+        padding: 10px 18px;
+
+        font-size: .95rem;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body class="notranslate" translate="no">
 
   <div id="stars-container"></div>
 
   <!-- PAGE 1 -->
+
   <div class="page active" id="page1">
-    <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; padding: 0 5px;">
-      <h3 style="color: #ff85a1; margin: 0; font-size: 0.95rem;">علشانك أنتِ بس ❤️</h3>
-      <span style="font-size: 18px;">❤️</span>
+
+    <div style="display:flex; justify-content:space-between; width:100%; align-items:center; padding:0 5px;">
+
+      <h3 style="color:#ff85a1; margin:0; font-size:.95rem;">علشانك أنتِ بس ❤️</h3>
+
+      <span style="font-size:18px;">❤️</span>
+
     </div>
-    
-    <!-- Exact Reference Heart Block -->
-    <div class="heart-container">
-      <div class="heart-title">Love in 20 Languages</div>
-      <div class="words-matrix" id="wordsMatrix"></div>
+
+    <div class="heart-card">
+
+      <div class="heart-title">Love in 20 Languages ❤️</div>
+
+      <div class="heart-lines-wrapper" id="heartLinesWrapper"></div>
+
     </div>
 
     <button class="next-btn" onclick="nextPage(2)">Next ➡️</button>
+
   </div>
 
   <!-- PAGE 2 -->
-  <div class="page" id="page2" style="justify-content: center; gap: 20px;">
+
+  <div class="page" id="page2" style="justify-content:center; gap:20px;">
+
     <h1 class="title-name">Hend ❤️</h1>
+
     <div class="love-message">
+
       لـ بنتي ونور عيني وأغلى حاجة في حياتي.. <br><br>
+
       ودي حاجة مني ليكي بمناسبة إني بحبك وبموت فيكي ومش بحب قدك يعني.. <br><br>
-      <span style="color: #ff85a1; font-weight: bold;">وخفي نكد عليا شويه 😂😂❤️</span>
+
+      <span style="color:#ff85a1; font-weight:bold;">وخفي نكد عليا شويه 😂😂❤️</span>
+
     </div>
-    <button class="next-btn" onclick="nextPage(3)">Next ➡️</button>
+
+    <div class="page-navigation">
+
+      <button class="next-btn secondary-btn" onclick="nextPage(1)">⬅️ رجوع</button>
+
+      <button class="next-btn" onclick="nextPage(3)">التالي ➡️</button>
+
+    </div>
+
   </div>
 
   <!-- PAGE 3 -->
+
   <div class="page" id="page3">
-    <h3 style="color: #ff85a1;">ذكرياتنا الجميلة 📸❤️</h3>
-    
-    <div class="gallery">
-      <div class="photo-card"><img src="photo1.jpg" alt="Photo 1"></div>
-      <div class="photo-card"><img src="photo2.jpg" alt="Photo 2"></div>
-      <div class="photo-card"><img src="photo3.jpg" alt="Photo 3"></div>
-      <div class="photo-card"><img src="photo4.jpg" alt="Photo 4"></div>
+
+    <h3 style="color:#ff85a1; margin:4px 0 0;">ذكرياتنا الجميلة 📸❤️</h3>
+
+    <div class="gallery-shell">
+
+      <div class="gallery" id="gallery">
+
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="photo-card">
+
+            <img src="photo1.jpg" alt="Our memory 1" draggable="false">
+
+            <div class="photo-caption">أجمل ذكرى ❤️</div>
+
+          </div>
+
+          <div class="photo-card">
+
+            <img src="photo2.jpg" alt="Our memory 2" draggable="false">
+
+            <div class="photo-caption">كل صورة ليها حكاية ✨</div>
+
+          </div>
+
+          <div class="photo-card">
+
+            <img src="photo3.jpg" alt="Our memory 3" draggable="false">
+
+            <div class="photo-caption">ضحكتك أحلى حاجة 🥹</div>
+
+          </div>
+
+          <div class="photo-card">
+
+            <img src="photo4.jpg" alt="Our memory 4" draggable="false">
+
+            <div class="photo-caption">وعقبال ذكريات أكتر سوا 💗</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-controls">
+
+        <button class="gallery-arrow" id="prevPhoto" aria-label="Previous photo">‹</button>
+
+        <div class="gallery-dots" id="galleryDots">
+
+          <button class="gallery-dot active" aria-label="Photo 1"></button>
+
+          <button class="gallery-dot" aria-label="Photo 2"></button>
+
+          <button class="gallery-dot" aria-label="Photo 3"></button>
+
+          <button class="gallery-dot" aria-label="Photo 4"></button>
+
+        </div>
+
+        <button class="gallery-arrow" id="nextPhoto" aria-label="Next photo">›</button>
+
+      </div>
+
+      <p class="swipe-hint">اسحب الصورة يمين أو شمال عشان تشوف باقي الذكريات ❤️</p>
+
     </div>
 
     <div class="audio-player">
+
       <audio id="bgSong" controls loop>
+
         <source src="song.mp3" type="audio/mpeg">
+
       </audio>
+
     </div>
+
+    <button class="next-btn secondary-btn" onclick="nextPage(2)">⬅️ رجوع للرسالة</button>
+
   </div>
 
   <script>
-    const languagesList = [
-      "أحبك", "Aku cinta kamu", "আমি তোমাকে ভালোবাসি", 
-      "Ik hou van jou", "Eu te amo", "I love you", "Σ' αγαπώ", 
-      "السَّلام", "Saranghae", "أحبك", "Ti amo", "Ich liebe dich", 
-      "Я люблю тебя", "Te amo", "Seni seviyorum", "Nakupenda", 
-      "Te iubesc", "Mahal kita", "دوستت دارم", "मैं तुमसे प्यार करता हूँ"
+
+    // 20 طريقة لقول بحبك
+
+    const lovePhrases = [
+
+      "أحبك", "I love you", "Je t'aime", "Te amo",
+
+      "Ti amo", "Ich liebe dich", "Eu te amo", "Ik hou van jou",
+
+      "Seni seviyorum", "Я тебя люблю", "我爱你", "愛してる",
+
+      "사랑해", "আমি তোমাকে ভালোবাসি", "मैं तुमसे प्यार करता हूँ",
+
+      "دوستت دارم", "میں تم سے محبت کرتا ہوں", "Nakupenda",
+
+      "Aku cinta kamu", "Σ' αγαπώ"
+
     ];
 
-    const matrix = document.getElementById('wordsMatrix');
+    // توزيع الكلمات لتكوين شكل القلب
 
-    // Generating words matching the exact visual style and flow
-    languagesList.forEach((lang, index) => {
-      const span = document.createElement('span');
-      span.className = 'matrix-word notranslate';
-      span.setAttribute('translate', 'no');
-      span.innerText = lang;
-      span.style.animationDelay = `${index * 0.08}s`;
-      matrix.appendChild(span);
+    const rowWidths = [72, 88, 96, 100, 98, 94, 86, 76, 64, 50, 34, 18];
+
+    const wordsPerRow = [2, 4, 6, 7, 7, 7, 6, 5, 4, 3, 2, 1];
+
+    const container = document.getElementById("heartLinesWrapper");
+
+    let phraseIndex = 0;
+
+    let animationIndex = 0;
+
+    wordsPerRow.forEach((count, rowIndex) => {
+
+      const lineDiv = document.createElement("div");
+
+      lineDiv.className = "line";
+
+      lineDiv.style.width = rowWidths[rowIndex] + "%";
+
+      if (rowIndex < 2) {
+
+        lineDiv.classList.add("top-heart");
+
+      }
+
+      for (let i = 0; i < count; i++) {
+
+        const span = document.createElement("span");
+
+        span.className = "word notranslate";
+
+        span.setAttribute("translate", "no");
+
+        span.innerText = lovePhrases[phraseIndex % lovePhrases.length];
+
+        phraseIndex++;
+
+        span.style.animationDelay = `${animationIndex * 0.09}s`;
+
+        lineDiv.appendChild(span);
+
+        animationIndex++;
+
+      }
+
+      container.appendChild(lineDiv);
+
     });
 
-    // Twinkling stars
-    const starsContainer = document.getElementById('stars-container');
-    for (let i = 0; i < 25; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.top = `${Math.random() * 100}vh`;
-      const size = `${2 + Math.random() * 3}px`;
-      star.style.width = size;
-      star.style.height = size;
-      star.style.animationDuration = `${2 + Math.random() * 3}s`;
-      star.style.animationDelay = `${Math.random() * 2}s`;
-      starsContainer.appendChild(star);
+    // معرض الصور والتنقل بالسحب
+
+    const gallery = document.getElementById("gallery");
+
+    const galleryTrack = document.getElementById("galleryTrack");
+
+    const galleryDots = [...document.querySelectorAll(".gallery-dot")];
+
+    const photoCount = galleryDots.length;
+
+    let currentPhoto = 0;
+
+    let dragStartX = 0;
+
+    let dragDeltaX = 0;
+
+    let dragging = false;
+
+    function showPhoto(index) {
+
+      currentPhoto = (index + photoCount) % photoCount;
+
+      galleryTrack.style.transform =
+
+        `translateX(-${currentPhoto * 100}%)`;
+
+      galleryDots.forEach((dot, i) => {
+
+        dot.classList.toggle("active", i === currentPhoto);
+
+      });
+
     }
 
-    function nextPage(p) {
-      document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-      document.getElementById(`page${p}`).classList.add('active');
+    document.getElementById("prevPhoto").addEventListener("click", () => {
 
-      if (p === 3) {
-        const audio = document.getElementById('bgSong');
-        audio.play().catch(() => {});
+      showPhoto(currentPhoto - 1);
+
+    });
+
+    document.getElementById("nextPhoto").addEventListener("click", () => {
+
+      showPhoto(currentPhoto + 1);
+
+    });
+
+    galleryDots.forEach((dot, i) => {
+
+      dot.addEventListener("click", () => showPhoto(i));
+
+    });
+
+    gallery.addEventListener("pointerdown", event => {
+
+      dragging = true;
+
+      dragStartX = event.clientX;
+
+      dragDeltaX = 0;
+
+      galleryTrack.style.transition = "none";
+
+      if (gallery.setPointerCapture) {
+
+        gallery.setPointerCapture(event.pointerId);
+
       }
+
+    });
+
+    gallery.addEventListener("pointermove", event => {
+
+      if (!dragging) return;
+
+      dragDeltaX = event.clientX - dragStartX;
+
+      const width = gallery.clientWidth || 1;
+
+      const offset = -currentPhoto * width + dragDeltaX;
+
+      galleryTrack.style.transform = `translateX(${offset}px)`;
+
+    });
+
+    function finishGalleryDrag() {
+
+      if (!dragging) return;
+
+      dragging = false;
+
+      galleryTrack.style.transition = "";
+
+      if (Math.abs(dragDeltaX) > 45) {
+
+        showPhoto(currentPhoto + (dragDeltaX < 0 ? 1 : -1));
+
+      } else {
+
+        showPhoto(currentPhoto);
+
+      }
+
+      dragDeltaX = 0;
+
     }
+
+    gallery.addEventListener("pointerup", finishGalleryDrag);
+
+    gallery.addEventListener("pointercancel", finishGalleryDrag);
+
+    gallery.addEventListener("lostpointercapture", finishGalleryDrag);
+
+    // النجوم المتحركة
+
+    const starsContainer = document.getElementById("stars-container");
+
+    for (let i = 0; i < 35; i++) {
+
+      const star = document.createElement("div");
+
+      star.className = "star";
+
+      star.style.left = `${Math.random() * 100}vw`;
+
+      star.style.top = `${Math.random() * 100}vh`;
+
+      const size = `${2 + Math.random() * 3}px`;
+
+      star.style.width = size;
+
+      star.style.height = size;
+
+      star.style.animationDuration = `${2 + Math.random() * 3}s`;
+
+      star.style.animationDelay = `${Math.random() * 2}s`;
+
+      starsContainer.appendChild(star);
+
+    }
+
+    // التنقل بين الصفحات الثلاث
+
+    function nextPage(pageNumber) {
+
+      document.querySelectorAll(".page").forEach(page => {
+
+        page.classList.remove("active");
+
+      });
+
+      document.getElementById(`page${pageNumber}`).classList.add("active");
+
+      if (pageNumber === 3) {
+
+        const audio = document.getElementById("bgSong");
+
+        audio.play().catch(() => {});
+
+      }
+
+    }
+
   </script>
+
 </body>
+
 </html>
